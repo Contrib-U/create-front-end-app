@@ -1,6 +1,6 @@
 {
   "name": "create-front-end-app-html",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Creates a readymade template to start working with Html, CSS, Bootstrap, JavaScript",
   "bin":{
     "create-front-end-app": "./index.js"
