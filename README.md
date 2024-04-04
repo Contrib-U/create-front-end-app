@@ -10,5 +10,5 @@ You can download and install the <strong>create-front-end-app-html</strong> comm
 
 # Usage
 You can use <strong>create-front-end-app-html</strong> command to create a templates of a front-end project inside a main project folder. You can use the below command to create a front-end app template. <br>
-`create-front-end-app-html <project-name>`
+`npx create-front-end-app-html <project-name>`
 
