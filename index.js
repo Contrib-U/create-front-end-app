@@ -1,29 +1,27 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+const {execSync} = require('child_process');
 
-const projectName = process.argv[2];
+const runCommand = command => {
+    try{
+        execSync(`${command}`, {stdio: 'inherit'});
+    }catch(e){
+        console.error(`Failed to execute ${command}`,e);
+        return false;
+    }
+    return true;
+}
 
-const currentDir = process.cwd();
-const projectDir = path.resolve(currentDir, projectName);
-fs.mkdirSync(projectDir,{recursive: true});
+const repoName = process.argv[2];
+const gitCheck = `git clone --depth 1 https://github.com/Rupa-Rd/Front-end-template.git ${repoName}`;
+const installCom = `cd ${repoName} && npm install`;
 
+console.log(`Cloning the repository with name ${repoName}`);
+const check = runCommand(gitCheck);
+if(!check) process.exit(-1);
 
-const assets = path.resolve(__dirname, 'assets');
-const public = path.resolve(__dirname, 'public');
-fs.cpSync(assets, projectDir, {recursive:true});
-fs.cpSync(public, projectDir, {recursive:true});
+console.log(`Installing dependencies ${repoName}`);
+const installDeps = runCommand(installCom);
+if(!installDeps) process.exit(-1);
 
-const projectPackageJson = require(path.join(projectDir, 'package.json'));
-
-projectPackageJson.name = projectName;
-
-fs.writeFileSync(
-    path.join(projectDir, 'package.json'),
-    JSON.stringify(projectPackageJson, null, 2)
-);
-
-
-console.log('Success! Your new project is ready!');
-console.log(`Created ${projectName} at ${projectDir}`);
+console.log("Congratulations! You're ready to work!");
