@@ -1,5 +1,6 @@
 # create-front-end-app-html
 Creates a front-end app template with necessary files and folders. Which includes Html, CSS and Java Script files
+![Screenshot 2024-04-09 181342](https://github.com/user-attachments/assets/b1fb5058-d6f9-4aa4-ae5d-fe2b3987abda)
 
 # Installation
 <strong>create-front-end-app-html</strong> comes with 2 folders named <strong>public</strong> and <strong>assets</strong>. Official files can be found at: https://github.com/Rupa-Rd/create-front-end-app
